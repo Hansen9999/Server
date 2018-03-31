@@ -20,11 +20,12 @@ Base = declarative_base()
 Base.metadata.bind = engine
 
 # Import all models to add them to Base.metadata
+from api.models.customer import Customer
 
 Base.metadata.create_all()
 
 print('Table Schema: ')
-print(CreateTable(Truck.__table__).compile(engine))
+print(CreateTable(Customer.__table__).compile(engine))
 
 manager = flask_restless.APIManager(app, session=session)
 
