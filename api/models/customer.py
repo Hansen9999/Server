@@ -4,6 +4,10 @@ from sqlalchemy.orm import relationship
 from api import Base
 
 class Customer(Base):
+    def __init__(self, name, password):
+        self.name = name
+        self.password = password
+
     @declared_attr
     def __tablename__(self):
         return 'customer'
