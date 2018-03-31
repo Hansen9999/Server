@@ -13,7 +13,7 @@ class Login(Resource):
     # define the POST method
     def post(self):
         json_user_data = request.data
-        user_data = json.loads(json_user_data)
+        user_data = json.loads(json_user_data.decode('utf-8'))
         try:
             username = user_data['username']
             password = user_data['password']

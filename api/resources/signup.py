@@ -9,11 +9,11 @@ import timeit
 import sys
 
 class SignUp(Resource):
-    
+
     # define the POST method
     def post(self):
         json_user_data = request.data
-        user_data = json.loads(json_user_data)
+        user_data = json.loads(json_user_data.decode('utf-8'))
 
         try:
             username = user_data['username']
@@ -27,6 +27,6 @@ class SignUp(Resource):
             session.flush()
             session.commit()
         except:
-            return {"status": 1, "message": "error adding data to database"} 
+            return {"status": 2, "message": "error adding data to database"} 
 
         return {"status": 0, "message": "sign up success"}
