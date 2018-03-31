@@ -14,7 +14,6 @@ class Login(Resource):
     def post(self):
         json_user_data = request.data
         user_data = json.loads(json_user_data)
-
         try:
             username = user_data['username']
             password = user_data['password']
