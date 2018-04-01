@@ -13,6 +13,7 @@ class SignUp(Resource):
     # define the POST method
     def post(self):
         json_user_data = request.data
+        print(json_user_data.decode('utf-8'))
         user_data = json.loads(json_user_data.decode('utf-8'))
 
         try:
