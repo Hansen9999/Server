@@ -27,7 +27,8 @@ class SignUp(Resource):
             session.add(new_customer)
             session.flush()
             session.commit()
-        except:
+        except Exception as e:
+            print(e)
             return {"status": 2, "message": "error adding data to database"} 
 
         return {"status": 0, "message": "sign up success"}

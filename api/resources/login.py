@@ -29,7 +29,8 @@ class Login(Resource):
             if password != customer.password:
                 return {"status": 3, "message": "invalid password"}
 
-        except:
+        except Exception as e:
+            print(e)
             return {"status": 4, "message": "error reading data from database"} 
 
         return {"status": 0, "message": "login success"}
